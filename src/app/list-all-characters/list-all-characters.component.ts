@@ -311,10 +311,10 @@ export class ListAllCharactersComponent implements OnInit {
 
 
   setCharactersByCOLOR_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByCOLOR_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByCOLOR_ASC(this.filteredCharacters);
   }
   setCharactersByCOLOR_DESSC(): void {
-    this.charactersList = this.characterService.getCharactersByCOLOR_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByCOLOR_DESC(this.filteredCharacters);
   }
 
   filterByColor_button_clickEvent() {
@@ -330,10 +330,10 @@ export class ListAllCharactersComponent implements OnInit {
   }
 
   setCharactersByCLASS_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByCLASS_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByCLASS_ASC(this.filteredCharacters);
   }
   setCharactersByCLASS_DESC(): void {
-    this.charactersList = this.characterService.getCharactersByCLASS_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByCLASS_DESC(this.filteredCharacters);
   }
 
   filterByClass_button_clickEvent() {
@@ -349,10 +349,10 @@ export class ListAllCharactersComponent implements OnInit {
   }
 
   setCharactersByFACTION_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByFACTION_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByFACTION_ASC(this.filteredCharacters);
   }
   setCharactersByFACTION_DESC(): void {
-    this.charactersList = this.characterService.getCharactersByFACTION_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByFACTION_DESC(this.filteredCharacters);
   }
  
   filterByFaction_button_clickEvent() {
@@ -368,10 +368,10 @@ export class ListAllCharactersComponent implements OnInit {
   }
 
   setCharactersByATK_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByATK_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByATK_ASC(this.filteredCharacters);
   }
   setCharactersByATK_DESC(): void {
-    this.charactersList = this.characterService.getCharactersByATK_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByATK_DESC(this.filteredCharacters);
   }
   
   filterByATK_button_clickEvent() {
@@ -387,10 +387,10 @@ export class ListAllCharactersComponent implements OnInit {
   }
 
   setCharactersByDEF_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByDEF_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByDEF_ASC(this.filteredCharacters);
   }
   setCharactersByDEF_DESC(): void {
-    this.charactersList = this.characterService.getCharactersByDEF_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByDEF_DESC(this.filteredCharacters);
   }
 
   filterByDEF_button_clickEvent() {
@@ -406,10 +406,10 @@ export class ListAllCharactersComponent implements OnInit {
   }
 
   setCharactersByHP_ASC(): void {
-    this.charactersList = this.characterService.getCharactersByHP_ASC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByHP_ASC(this.filteredCharacters);
   }
   setCharactersByHP_DESC(): void {
-    this.charactersList = this.characterService.getCharactersByHP_DESC(this.charactersList);
+    this.filteredCharacters = this.characterService.getCharactersByHP_DESC(this.filteredCharacters);
   }
 
   filterByHP_button_clickEvent() {
