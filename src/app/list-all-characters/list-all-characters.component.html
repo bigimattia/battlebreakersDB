@@ -1,0 +1,81 @@
+<nav><a routerLink="/home">Go Back to Homepage</a></nav>
+  <br>
+  <div class="input-container">
+    <input #searchText placeholder="Search character..." value={{savestateservice_searchText}} [(ngModel)]="savestateservice_searchText" (input)="filterItem(searchText.value)">
+  </div>
+  <div><button class="show-hide-filters-button" (click) ="show_hide_filters_clickEvent()" >{{show_hide_button}}</button></div>
+  <br>
+  <div id="collapsingFilter" style="display: none;">
+    <div class="filter-container">
+      <button class="filterByID-button" (click) = "filterByID_button_clickEvent()">Filter by ID</button>
+      <button class="filterByRarity-button" (click) = "filterByRARITY_button_clickEvent()">Filter by rarity</button>
+      <button class="filterByColor-button" (click) = "filterByColor_button_clickEvent()">Filter by color</button>
+      <button class="filterByClass-button" (click) = "filterByClass_button_clickEvent()">Filter by class</button>
+      <button class="filterByFaction-button" (click) = "filterByFaction_button_clickEvent()">Filter by faction</button>
+      <button class="filterByATK-button" (click) = "filterByATK_button_clickEvent()">Filter by ATK</button>
+      <button class="filterByDEF-button" (click) = "filterByDEF_button_clickEvent()">Filter by DEF</button>
+      <button class="filterByHP-button" (click) = "filterByHP_button_clickEvent()">Filter by HP</button>
+    </div>
+    <br>
+    <div class="checkbox-parent-container">
+      <div class="checkbox-container">
+        <div class="text-center mt-5">
+          <div class="row">
+              <div class="col-md-6">
+                <p>CLASSES</p>
+                  <ul class="list-group">
+                      <li class="list-group-item">
+                        <input type="checkbox" [(ngModel)]="savestateservice_masterSelected" name="list_class" value="m1" (change)="checkUncheckAll()"/> <strong>Select/ Unselect All</strong>
+                      </li>
+                    </ul>
+                    <ul class="list-group">
+                      <li class="list-group-item" *ngFor="let class of classesList">
+                        <input type="checkbox" [(ngModel)]="savestateservice_isClassSelected[class.CLASS_ID]" name="list_class" value="{{class.CLASS_ID}}" (change)="isAllSelected(class.CLASS_ID)"/>
+                        {{class.class_name}}
+                      </li>
+                    </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkbox-container">
+          <div class="text-center mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                  <p>COLORS</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                          <input type="checkbox" [(ngModel)]="savestateservice_masterSelected_color" name="list_color" value="m1" (change)="checkUncheckAll_color()"/> <strong>Select/ Unselect All</strong>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let color of colorList">
+                          <input type="checkbox" [(ngModel)]="savestateservice_isColorSelected[color.COLOR_ID]" name="list_color" value="{{color.COLOR_ID}}" (change)="isAllSelected_color(color.COLOR_ID)"/>
+                          {{color.color_name}}
+                        </li>
+                      </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <br>
+<p id="searchResults">Filters currently active <br>
+     -Character's name: {{savestateservice_searchText}}<br>
+     -Sorted: {{selected_filter}} - ASC? {{local_filterASC[selected_filter]}}<br>
+     -Filtered some colors: {{!savestateservice_masterSelected_color}}<br>
+     -Filtered some classes: {{!savestateservice_masterSelected}} </p>
+  
+<div class="container">
+      <div class="group">
+          <a *ngFor="let character of filteredCharacters" class="character-unit" routerLink="/detail/{{character.ID_CHARACTER}}">
+              <div class="character-block">
+                <h4>{{character.name}}</h4>
+                <p>Character ID: {{character.ID_CHARACTER}}</p>
+              </div>
+            </a>
+      </div>
+  </div>

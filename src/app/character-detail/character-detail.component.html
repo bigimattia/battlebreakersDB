@@ -1,0 +1,20 @@
+<nav><a routerLink="/home">Go Back to Homepage</a></nav>
+  <br>
+<div class="container">
+    <div *ngIf="character">
+      <h2>{{ character.name | uppercase }}</h2>
+      <p>
+        <span>ATK: </span>
+        {{character.character_atk | number}}
+      </p>
+      <p>
+        <span>HP: </span>
+        {{character.character_hp | number}}
+      </p>
+      <p>
+        <span>DEF: </span>
+        {{character.character_defense | number}}
+      </p>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
