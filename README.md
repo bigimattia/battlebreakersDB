@@ -1,5 +1,13 @@
 # BattlebreakersDB
 
+This is my first angular project, feel free to use it.
+In order to populate the "database" edit the "src/app/characters-data.ts" file.
+Add classes editing "src/app/characterclasses-data.ts" ( you'll have to update "src/app/Constants.ts" as well) .
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
