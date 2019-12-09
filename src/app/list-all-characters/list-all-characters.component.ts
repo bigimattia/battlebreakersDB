@@ -11,6 +11,8 @@ import { ColorsService } from '../color.service';
 import { isNgTemplate } from '@angular/compiler';
 import { filter } from 'minimatch';
 import { Color } from '../Color';
+import { AbilitySys } from '../AbilitySys';
+import { AbilitySysService } from '../abilitysys.service';
 
 
 @Component({
@@ -34,7 +36,12 @@ export class ListAllCharactersComponent implements OnInit {
   classesList: CharacterClasses[] = [];
   colorList: Color[] = [];
 
-
+  abilityList: AbilitySys[]=[];
+  /*
+  commanderAbilityList: AbilitySys[] = [];
+  passsiveAbilityList: AbilitySys[] = [];
+  specialAbilityList: AbilitySys[] = [];
+  */
   checklist:any;
   checkedList:any;
   local_isClassSelected: boolean[] = [];
@@ -63,6 +70,24 @@ export class ListAllCharactersComponent implements OnInit {
   get savestateservice_masterSelected_color(): boolean{
     return this.savestateservice.masterSelected_color;
   }
+  get savestateservice_masterSelected_commanderAbility(): boolean {
+    return this.savestateservice.masterSelected_commanderAbility;
+  }
+  get savestateservice_isCommanderAbilitySelected(): boolean[] {
+    return Object.assign([], this.savestateservice.isCommanderAbilitySelected);
+  }
+  get savestateservice_masterSelected_passiveAbility(): boolean {
+    return this.savestateservice.masterSelected_passiveAbility;
+  }
+  get savestateservice_isPassiveAbilitySelected(): boolean[]{
+    return Object.assign([], this.savestateservice.isPassiveAbilitySelected);
+  }
+  get savestateservice_masterSelected_specialAbility(): boolean {
+    return this.savestateservice.masterSelected_specialAbility;
+  }
+  get savestateservice_isSpecialAbilitySelected(): boolean [] {
+    return Object.assign([], this.savestateservice.isSpecialAbilitySelected);
+  }
   set savestateservice_searchText (value: string) { 
     this.savestateservice.searchText = value; 
   } 
@@ -87,6 +112,24 @@ export class ListAllCharactersComponent implements OnInit {
   set savestateservice_masterSelected_color(value: boolean) {
     this.savestateservice.masterSelected_color = value;
   }
+  set savestateservice_masterSelected_commanderAbility(value:boolean) {
+    this.savestateservice.masterSelected_commanderAbility = value;
+  }
+  set savestateservice_isCommanderAbilitySelected(value: boolean[]){
+    this.savestateservice.isCommanderAbilitySelected = Object.assign([], value);
+  }
+  set savestateservice_masterSelected_passiveAbility(value: boolean) {
+    this.savestateservice.masterSelected_passiveAbility = value;
+  }
+  set savestateservice_isPassiveAbilitySelected(value: boolean[]){
+    this.savestateservice.isPassiveAbilitySelected = Object.assign([], value);
+  }
+  set savestateservice_masterSelected_specialAbility(value: boolean) {
+    this.savestateservice.masterSelected_specialAbility = value;
+  }
+  set savestateservice_isSpecialAbilitySelected(value: boolean[]){
+    this.savestateservice.isSpecialAbilitySelected = Object.assign([], value);
+  }
 
 
   setClasses(){
@@ -101,12 +144,29 @@ export class ListAllCharactersComponent implements OnInit {
   getColor(index: number): Color{
     return this.colorService.getColor(index);
   }
+  setAbilities(){/*       // DEPRECATED
+    this.abilitySysService.getAbilities().forEach( (ability) => {
+      if(ability.is_commander)
+        this.commanderAbilityList.push(ability);
+      if(ability.is_passive)
+        this.passsiveAbilityList.push(ability);
+      if(ability.is_special)
+        this.specialAbilityList.push(ability);
+    });*/
+
+    this.abilityList = this.abilitySysService.getAbilities();
+    console.log(this.abilityList);
+  }
+  getAbility(index: number):AbilitySys{
+    return this.abilitySysService.getAbilityByID(index);
+  }
 
 
 
-  constructor(private characterService: CharacterService, private classesService: ClassesService, private colorService: ColorsService, public savestateservice: SaveStateService) { 
+  constructor(private characterService: CharacterService, private classesService: ClassesService, private colorService: ColorsService, private abilitySysService: AbilitySysService, public savestateservice: SaveStateService) { 
       this.setClasses();
       this.setColors();
+      this.setAbilities();
   }
 
   ngOnInit() {    
@@ -136,7 +196,34 @@ export class ListAllCharactersComponent implements OnInit {
           }
         } 
         this.updateFilteredCharacters(this.characterService.filterColor_MULTI(temp, this.filteredCharacters));
-    }   
+    }
+    if(!this.savestateservice_masterSelected_commanderAbility) {
+      var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isCommanderAbilitySelected.length; i++) {
+          if(this.savestateservice_isCommanderAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterCommander_MULTI(temp, this.filteredCharacters));
+    }  
+    if(!this.savestateservice_masterSelected_passiveAbility) {
+      var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isPassiveAbilitySelected.length; i++) {
+          if(this.savestateservice_isPassiveAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterPassive_MULTI(temp, this.filteredCharacters));
+    }  
+    if(!this.savestateservice_masterSelected_specialAbility) {
+      var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isSpecialAbilitySelected.length; i++) {
+          if(this.savestateservice_isSpecialAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterSpecial_MULTI(temp, this.filteredCharacters));
+    }     
   }
 
   filterHandler() {
@@ -450,6 +537,12 @@ export class ListAllCharactersComponent implements OnInit {
     this.savestateservice_isColorSelected = [true, true, true, true, true];
     this.savestateservice_masterSelected = true;
     this.savestateservice_masterSelected_color = true;
+    this.savestateservice_masterSelected_commanderAbility = true;
+    this.savestateservice_isCommanderAbilitySelected = [true, true];
+    this.savestateservice_masterSelected_passiveAbility = true;
+    this.savestateservice_isPassiveAbilitySelected = [true, true];
+    this.savestateservice_masterSelected_specialAbility = true;
+    this.savestateservice_isSpecialAbilitySelected = [true, true];
   }
 
   show_hide_filters_clickEvent(){
@@ -488,6 +581,9 @@ export class ListAllCharactersComponent implements OnInit {
         //restore eventual other filters active -> COLOR, FACTION, ETC..
         this.filterHandler();
         this.colorFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
 
       } else {
         this.initCollection(); //reset characterList before doing anything
@@ -506,6 +602,9 @@ export class ListAllCharactersComponent implements OnInit {
         
 
         this.colorFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
       }
     } else {
       if(!this.savestateservice_masterSelected) {
@@ -566,6 +665,9 @@ export class ListAllCharactersComponent implements OnInit {
         //restore eventual other filters active -> COLOR, FACTION, ETC..
         this.filterHandler();
         this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
 
       } else {
         this.initCollection(); //reset characterList before doing anything
@@ -582,6 +684,9 @@ export class ListAllCharactersComponent implements OnInit {
         this.updateFilteredCharacters(this.characterService.filterColor_MULTI(temp, this.filteredCharacters));
       
         this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
       }
     } else {
       if(!this.savestateservice_masterSelected_color) {
@@ -629,5 +734,236 @@ export class ListAllCharactersComponent implements OnInit {
   //not going to implement this right now, it's already possible to sort by rarity.
 
   /////////////////////////////////////
+
+
+  commanderAbilityFilterHandler(imCalled: boolean){
+    if(!imCalled){
+      if(this.savestateservice_masterSelected_commanderAbility) {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
+
+      } else {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        
+
+        var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isCommanderAbilitySelected.length; i++) {
+          if(this.savestateservice_isCommanderAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+
+        this.updateFilteredCharacters(this.characterService.filterCommander_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+        
+
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.passiveAbilityHandler(true);
+        this.specialAbilityHandler(true);
+      }
+    } else {
+      if(!this.savestateservice_masterSelected_commanderAbility) {
+        var temp: number[] = [];
+
+        for (var i = 0; i < this.savestateservice_isCommanderAbilitySelected.length; i++) {
+          if(this.savestateservice_isCommanderAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterCommander_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+      }
+    }
+  }
+
+  passiveAbilityHandler(imCalled: boolean) {
+    if(!imCalled){
+      if(this.savestateservice_masterSelected_passiveAbility) {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.specialAbilityHandler(true);
+
+      } else {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        
+
+        var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isPassiveAbilitySelected.length; i++) {
+          if(this.savestateservice_isPassiveAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+
+        this.updateFilteredCharacters(this.characterService.filterPassive_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+        
+
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.specialAbilityHandler(true);
+      }
+    } else {
+      if(!this.savestateservice_masterSelected_commanderAbility) {
+        var temp: number[] = [];
+
+        for (var i = 0; i < this.savestateservice_isCommanderAbilitySelected.length; i++) {
+          if(this.savestateservice_isCommanderAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterPassive_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+      }
+    }
+  }
+
+
+  specialAbilityHandler(imCalled: boolean){
+    if(!imCalled){
+      if(this.savestateservice_masterSelected_specialAbility) {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+
+      } else {
+        this.initCollection(); //reset characterList before doing anything
+        //restore eventual other filters active -> COLOR, FACTION, ETC..
+        this.filterHandler();
+        
+
+        var temp: number[] = [];
+        for (var i = 0; i < this.savestateservice_isSpecialAbilitySelected.length; i++) {
+          if(this.savestateservice_isSpecialAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+
+        this.updateFilteredCharacters(this.characterService.filterSpecial_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+        
+
+        this.colorFilterHandler(true);
+        this.classFilterHandler(true);
+        this.commanderAbilityFilterHandler(true);
+        this.passiveAbilityHandler(true);
+      }
+    } else {
+      if(!this.savestateservice_masterSelected_specialAbility) {
+        var temp: number[] = [];
+
+        for (var i = 0; i < this.savestateservice_isSpecialAbilitySelected.length; i++) {
+          if(this.savestateservice_isSpecialAbilitySelected[i]){
+            temp.push(i);
+          }
+        } 
+        this.updateFilteredCharacters(this.characterService.filterSpecial_MULTI(temp, this.filteredCharacters)); //does not modify characterList, only the displayed one
+      }
+    }
+  }
+
+
+  //TO-DO ABILITY SYS ON CLICK FILTER
+  
+  checkUncheckAll_commanderAbility() {
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isCommanderAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    for (var i = 0; i < this.savestateservice_isCommanderAbilitySelected.length; i++) {
+      tmp[i] = this.savestateservice_masterSelected_commanderAbility;
+    }
+    this.savestateservice_isCommanderAbilitySelected = tmp; //since it's binded to html it will auto-update the checkbox status as well.
+    //handle filteringByColor
+    this.commanderAbilityFilterHandler(false);
+  }
+
+
+
+
+  
+  isAllSelected_commanderAbility(commander_ability_id: string){
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isCommanderAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    tmp[commander_ability_id] = !tmp[commander_ability_id];
+    this.savestateservice_isCommanderAbilitySelected = tmp;
+    
+    this.savestateservice_masterSelected_commanderAbility = this.savestateservice_isCommanderAbilitySelected.every(function(item:boolean) {
+        return item == true;
+      })
+    
+      //handle filteringByColor
+    this.commanderAbilityFilterHandler(false);
+  }
+
+  
+
+  
+  checkUncheckAll_passiveAbility(){
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isPassiveAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    for (var i = 0; i < this.savestateservice_isPassiveAbilitySelected.length; i++) {
+      tmp[i] = this.savestateservice_masterSelected_passiveAbility;
+    }
+    this.savestateservice_isPassiveAbilitySelected = tmp; //since it's binded to html it will auto-update the checkbox status as well.
+    //handle filteringByColor
+    this.passiveAbilityHandler(false);
+  }
+  isAllSelected_passiveAbility(passive_ability_id: string){
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isPassiveAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    tmp[passive_ability_id] = !tmp[passive_ability_id];
+    this.savestateservice_isPassiveAbilitySelected = tmp;
+    
+    this.savestateservice_masterSelected_passiveAbility = this.savestateservice_isPassiveAbilitySelected.every(function(item:boolean) {
+        return item == true;
+      })
+    
+      //handle filteringByColor
+    this.passiveAbilityHandler(false);
+  }
+  
+  checkUncheckAll_specialAbility (){
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isSpecialAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    for (var i = 0; i < this.savestateservice_isSpecialAbilitySelected.length; i++) {
+      tmp[i] = this.savestateservice_masterSelected_specialAbility;
+    }
+    this.savestateservice_isSpecialAbilitySelected = tmp; //since it's binded to html it will auto-update the checkbox status as well.
+    //handle filteringByColor
+    this.specialAbilityHandler(false);
+  }
+  isAllSelected_specialAbility (spacial_ability_id: string){
+    var tmp: boolean[] = Object.assign([], this.savestateservice_isSpecialAbilitySelected);
+
+    this.savestateservice_filter_init = true; //filter has changed, save it
+    tmp[spacial_ability_id] = !tmp[spacial_ability_id];
+    this.savestateservice_isSpecialAbilitySelected = tmp;
+    
+    this.savestateservice_masterSelected_specialAbility = this.savestateservice_isSpecialAbilitySelected.every(function(item:boolean) {
+        return item == true;
+      })
+    
+      //handle filteringByColor
+    this.specialAbilityHandler(false);
+  }
+  
+
 
 }

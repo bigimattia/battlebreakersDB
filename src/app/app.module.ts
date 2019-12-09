@@ -12,6 +12,7 @@ import { ListAllCharactersComponent } from './list-all-characters/list-all-chara
 import { SaveStateService } from './savestate.service';
 import { ClassesService } from './characterclasses.service';
 import { ColorsService } from './color.service';
+import { AbilitySysService } from './abilitysys.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { ColorsService } from './color.service';
     FormsModule,
     RouterModule
   ],
-  providers: [CharacterService, SaveStateService, ClassesService, ColorsService],
+  providers: [CharacterService, SaveStateService, ClassesService, ColorsService, AbilitySysService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -54,8 +54,29 @@ export class SaveStateService {
     true,
     true,
     true
-  ]
+  ];
   masterSelected_color: boolean = true;
 
   filter_init: boolean = false;
+
+
+  masterSelected_commanderAbility: boolean = true;
+  isCommanderAbilitySelected: boolean[] = [ //lenght same as abilitysys-data.ts
+    true,
+    true
+  ];
+
+
+  masterSelected_passiveAbility: boolean = true;
+  isPassiveAbilitySelected: boolean[] = [ //lenght same as abilitysys-data.ts
+    true,
+    true
+  ];
+
+  masterSelected_specialAbility: boolean = true;
+  isSpecialAbilitySelected: boolean[] = [ //lenght same as abilitysys-data.ts
+    true,
+    true
+  ];
+
 }
