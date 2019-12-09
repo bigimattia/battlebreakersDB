@@ -25,12 +25,13 @@ export class Constants {
 
     /*
     ///// FACTIONS
-    0 - Assault robot
-    1 - 
+    0 - NONE
+    1 - ASSAULT_ROBOT_FACTION
     2 - 
     3 - 
     */
-    public static get ASSAULT_ROBOT_FACTION(): number { return 0; };
+   public static get NONE_FACTION(): number { return 0; };
+    public static get ASSAULT_ROBOT_FACTION(): number { return 1; };
 
     /*
     ///// COLORS

@@ -4,6 +4,26 @@
     <div *ngIf="character">
       <h2>{{ character.name | uppercase }}</h2>
       <p>
+        <span>Type: </span>
+        {{getTypeText()}}
+      </p>
+      <p>
+        <span>Class: </span>
+        {{getClassText()}}
+      </p>
+      <p>
+        <span>Faction: </span>
+        {{getFactionText()}}
+      </p>
+      <p>
+        <span>Color: </span>
+        {{getColorText()}}
+      </p>
+      <p>
+        <span>Rarity: </span>
+        {{getRarityText()}}
+      </p>
+      <p>
         <span>ATK: </span>
         {{character.character_atk | number}}
       </p>
@@ -15,6 +35,49 @@
         <span>DEF: </span>
         {{character.character_defense | number}}
       </p>
+      <p>
+        <span>Mana: </span>
+        {{character.character_mana_pool | number}}
+      </p>
+      <p>
+        <span>Recharge time: </span>
+        {{character.character_recharge_time | number}}
+      </p>
+      <p>
+        <span>Mascotte: </span>
+        {{character.character_mascotte_value | number}}
+      </p>
+      <p>
+        <span>Commander: </span>
+        {{character.commander_ability_desc}}
+      </p>
+      <p>
+        <span>Passive: </span>
+        {{character.passive_ability_desc}}
+      </p>
+      <p>
+        <span>Special: </span>
+        {{character.special_ability_desc}}
+      </p>
+      <p>
+        <span>Special mana cost: </span>
+        {{character.special_ability_mana_cost | number}}
+      </p>
+      <p>
+        <span>Special recharge time: </span>
+        {{character.special_ability_recharge_time | number}}
+      </p>
+
+      <p>
+        <span>Relfex attack: </span>
+        {{getReflexATK()}}
+      </p>
+
+      <p>
+        <span>Relfex defense: </span>
+        {{getReflexDEF()}}
+      </p>
+
       <button routerLink="../../list-all-characters" >Go Back</button>
     </div>
   </div>
