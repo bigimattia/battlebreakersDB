@@ -59,6 +59,75 @@
             </div>
           </div>
         </div>
+
+
+        <div class="checkbox-container">
+          <div class="text-center mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                  <p>COMMANDER</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                          <input type="checkbox" [(ngModel)]="savestateservice_masterSelected_commanderAbility" name="list_commander_ability" value="m1" (change)="checkUncheckAll_commanderAbility()"/> <strong>Select/ Unselect All</strong>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let commanderAbility of abilityList">
+                          <input type="checkbox" [(ngModel)]="savestateservice_isCommanderAbilitySelected[commanderAbility.ABILITY_ID]" name="list_commander_ability" value="{{commanderAbility.ABILITY_ID}}" (change)="isAllSelected_commanderAbility(commanderAbility.ABILITY_ID)"/>
+                          {{commanderAbility.ability_type_name}}
+                        </li>
+                      </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="checkbox-container">
+          <div class="text-center mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                  <p>PASSIVE</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                          <input type="checkbox" [(ngModel)]="savestateservice_masterSelected_passiveAbility" name="list_passive_ability" value="m1" (change)="checkUncheckAll_passiveAbility()"/> <strong>Select/ Unselect All</strong>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let passiveAbility of abilityList">
+                          <input type="checkbox" [(ngModel)]="savestateservice_isPassiveAbilitySelected[passiveAbility.ABILITY_ID]" name="list_passive_ability" value="{{passiveAbility.ABILITY_ID}}" (change)="isAllSelected_passiveAbility(passiveAbility.ABILITY_ID)"/>
+                          {{passiveAbility.ability_type_name}}
+                        </li>
+                      </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="checkbox-container">
+          <div class="text-center mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                  <p>SPECIAL</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                          <input type="checkbox" [(ngModel)]="savestateservice_masterSelected_specialAbility" name="list_special_ability" value="m1" (change)="checkUncheckAll_specialAbility()"/> <strong>Select/ Unselect All</strong>
+                        </li>
+                      </ul>
+                      <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let specialAbility of abilityList">
+                          <input type="checkbox" [(ngModel)]="savestateservice_isSpecialAbilitySelected[specialAbility.ABILITY_ID]" name="list_special_ability" value="{{specialAbility.ABILITY_ID}}" (change)="isAllSelected_specialAbility(specialAbility.ABILITY_ID)"/>
+                          {{specialAbility.ability_type_name}}
+                        </li>
+                      </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+
     </div>
   </div>
   

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Character } from './Character';
 import { CHARACTERS } from './characters-data';
+import { AbilitySysService } from './abilitysys.service';
+import { AbilitySys } from './AbilitySys';
 
 @Injectable()
 export class CharacterService {
@@ -33,51 +35,51 @@ export class CharacterService {
   }
 
   getCharactersByCOLOR_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.color - b.color);;
+    return list.sort((a, b) => a.color - b.color);
   }
  
   getCharactersByCOLOR_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.color - a.color);;
+    return list.sort((a, b) => b.color - a.color);
   }
 
   getCharactersByCLASS_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.character_class - b.character_class);;
+    return list.sort((a, b) => a.character_class - b.character_class);
   }
 
   getCharactersByCLASS_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.character_class - a.character_class);;
+    return list.sort((a, b) => b.character_class - a.character_class);
   }
 
   getCharactersByFACTION_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.faction - b.faction);;
+    return list.sort((a, b) => a.faction - b.faction);
   }
 
   getCharactersByFACTION_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.faction - a.faction);;
+    return list.sort((a, b) => b.faction - a.faction);
   }
 
   getCharactersByATK_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.character_atk - b.character_atk)
+    return list.sort((a, b) => a.character_atk - b.character_atk);
   }
 
   getCharactersByATK_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.character_atk - a.character_atk)
+    return list.sort((a, b) => b.character_atk - a.character_atk);
   }
 
   getCharactersByDEF_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.character_defense - b.character_defense)
+    return list.sort((a, b) => a.character_defense - b.character_defense);
   }
 
   getCharactersByDEF_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.character_defense - a.character_defense)
+    return list.sort((a, b) => b.character_defense - a.character_defense);
   }
 
   getCharactersByHP_ASC(list: Character[]): Character[] {
-    return list.sort((a, b) => a.character_hp - b.character_hp)
+    return list.sort((a, b) => a.character_hp - b.character_hp);
   }
 
   getCharactersByHP_DESC(list: Character[]): Character[] {
-    return list.sort((a, b) => b.character_hp - a.character_hp)
+    return list.sort((a, b) => b.character_hp - a.character_hp);
   }
 
   //filter name
@@ -108,7 +110,7 @@ export class CharacterService {
 
   //filter rarity
   filterRarity(rarity: number, list: Character[]): Character[] {
-    return list.filter(character => character.rarity === rarity)
+    return list.filter(character => character.rarity === rarity);
   }
 
   //MULTIPLE SEARCH!
@@ -125,7 +127,18 @@ export class CharacterService {
     return list.filter (character => classToFilterMulti.includes(character.character_class));
   }
   filterFaction_MULTI(factionMulti: number[], list: Character[]): Character[] {
-    return list.filter (character => factionMulti.includes(character.faction))
+    return list.filter (character => factionMulti.includes(character.faction));
   }
 
+  filterCommander_MULTI(commanderMulti: number[], list: Character[]): Character[] {
+    return list.filter (character => commanderMulti.includes(character.commander_ability_type));
+  }
+
+  filterPassive_MULTI(passiveMulti: number[], list: Character[]): Character[] {
+    return list.filter (character => passiveMulti.includes(character.passive_ability_type));
+  }
+
+  filterSpecial_MULTI(specialMulti: number[], list: Character[]): Character[] {
+    return list.filter (character => specialMulti.includes(character.special_ability_type));
+  }
 }

@@ -25,12 +25,13 @@ export class Constants {
 
     /*
     ///// FACTIONS
-    0 - Assault robot
-    1 - 
+    0 - NONE
+    1 - ASSAULT_ROBOT_FACTION
     2 - 
     3 - 
     */
-    public static get ASSAULT_ROBOT_FACTION(): number { return 0; };
+   public static get NONE_FACTION(): number { return 0; };
+    public static get ASSAULT_ROBOT_FACTION(): number { return 1; };
 
     /*
     ///// COLORS
@@ -54,24 +55,13 @@ export class Constants {
     public static get TYPE_PET(): number { return 1; };
 
 
-    // TO-DO --- COMMANDER, PASSIVE, SPECIALS TYPES
+    // TO-DO ---  ABILITIES TYPES
 
     /*
-    ///// COMMANDER
+    ///// 
     0 - Class boosting
+    1 - Self boosting
     */
-    public static get CLASS_BOOSTING_COMMANDER_ABILITY_TYPE(): number { return 0; };
-
-    /*
-    ///// PASSIVE
-    0 - Class boosting
-    */
-    public static get CLASS_BOOSTING_PASSIVE_ABILITY_TYPE(): number { return 0; };
-
-    /*
-    ///// SPECIAL
-    0 - Class boosting
-    */
-    public static get CLASS_BOOSTING_SPECIAL_ABILITY_TYPE(): number { return 0; };
-    
+    public static get CLASS_BOOSTING__ABILITY_TYPE(): number { return 0; };
+    public static get SELF_BOOSTING__ABILITY_TYPE(): number { return 1; };
 }

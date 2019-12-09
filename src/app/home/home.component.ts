@@ -31,6 +31,24 @@ export class HomeComponent implements OnInit {
   set savestateservice_masterSelected_color(value: boolean) {
     this.savestateservice.masterSelected_color = value;
   }
+  set savestateservice_masterSelected_commanderAbility(value:boolean) {
+    this.savestateservice.masterSelected_commanderAbility = value;
+  }
+  set savestateservice_isCommanderAbilitySelected(value: boolean[]){
+    this.savestateservice.isCommanderAbilitySelected = Object.assign([], value);
+  }
+  set savestateservice_masterSelected_passiveAbility(value: boolean) {
+    this.savestateservice.masterSelected_passiveAbility = value;
+  }
+  set savestateservice_isPassiveAbilitySelected(value: boolean[]){
+    this.savestateservice.isPassiveAbilitySelected = Object.assign([], value);
+  }
+  set savestateservice_masterSelected_specialAbility(value: boolean) {
+    this.savestateservice.masterSelected_specialAbility = value;
+  }
+  set savestateservice_isSpecialAbilitySelected(value: boolean[]){
+    this.savestateservice.isSpecialAbilitySelected = Object.assign([], value);
+  }
   ngOnInit() {
     //reset values for savestate.service
     this.savestateservice_searchText = "";
@@ -41,5 +59,11 @@ export class HomeComponent implements OnInit {
     this.savestateservice_isColorSelected = [true, true, true, true, true];
     this.savestateservice_masterSelected = true;
     this.savestateservice_masterSelected_color = true;
+    this.savestateservice_masterSelected_commanderAbility = true;
+    this.savestateservice_isCommanderAbilitySelected = [true, true];
+    this.savestateservice_masterSelected_passiveAbility = true;
+    this.savestateservice_isPassiveAbilitySelected = [true, true];
+    this.savestateservice_masterSelected_specialAbility = true;
+    this.savestateservice_isSpecialAbilitySelected = [true, true];
   }
 }
