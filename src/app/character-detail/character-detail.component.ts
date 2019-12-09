@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Character } from '../Character';
@@ -16,7 +16,7 @@ export class CharacterDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private characterService: CharacterService,
-    private location: Location
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +27,9 @@ export class CharacterDetailComponent implements OnInit {
     const ID_CHARACTER: string = this.route.snapshot.paramMap.get('ID_CHARACTER');
     this.character = this.characterService.getCharacter(ID_CHARACTER);
   }
-
+/*
   goBack(): void {
+    console.log(this.location);
     this.location.back();
-  }
+  }*/
 }
