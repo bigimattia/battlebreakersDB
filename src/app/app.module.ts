@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ɵROUTER_PROVIDERS } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { SaveStateService } from './savestate.service';
 import { ClassesService } from './characterclasses.service';
 import { ColorsService } from './color.service';
 import { AbilitySysService } from './abilitysys.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { AbilitySysService } from './abilitysys.service';
     FormsModule,
     RouterModule
   ],
-  providers: [CharacterService, SaveStateService, ClassesService, ColorsService, AbilitySysService],
+  providers: [CharacterService, SaveStateService, ClassesService, ColorsService, AbilitySysService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
