@@ -1,0 +1,134 @@
+body {
+    font-family: 'Lato';
+  }
+   
+  h2, h3, h4, p {
+    font-family: 'Lato';
+    margin: 10px;
+  }
+   
+  .character-block p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+   
+  .character-block h4 {
+    margin-bottom: 10px;
+  }
+   
+  h4 {
+    position: relative;
+    font-size: 1.25rem;
+  }
+  .container {
+    margin: 0 50px;
+    text-align: center;
+  }
+   
+  .character-unit {
+      width: 200px;
+      margin: 10px;
+  }
+   
+  br {
+    clear: both;
+  }
+   
+  .character-block {
+      padding: 30px 0;
+      text-align: center;
+      color: white;
+      background-color: #795548;
+      border-radius: 2px;
+  }
+   
+  .character-block:hover {
+    background-color: #9C27B0;
+    cursor: pointer;
+    color:white;
+  }
+
+  nav {
+    margin: 0px;
+    text-align: center;
+  }
+
+  nav a {
+    padding: 10px;
+    text-decoration: none;
+    margin: 10px 0px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Lato';
+  }
+   
+  nav a:hover {
+    background-color: gray;
+  }
+   
+  nav a.active {
+    color: #039be5;
+  }
+
+  a.simple {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 1.3rem;
+    font-family: 'Lato';
+    font-weight: 300;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+  }
+   
+  input {
+    border: none;
+    border-bottom: 2px solid #00ccff;
+    font-size: 1.5rem;
+    outline: none;
+    font-family: 'Lato';
+    font-weight: 300;
+    margin-right: 100px;
+    width: 100%;
+    text-align: center;
+  }
+   
+  input:focus {
+    border-bottom: 2px solid #ccff00;
+  }
+
+  .input-container{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+   }
+   :-moz-placeholder { /* older Firefox*/
+    text-align: center;
+   }
+   ::-moz-placeholder { /* Firefox 19+ */ 
+    text-align: center;
+   } 
+   :-ms-input-placeholder { 
+    text-align: center;
+   }
+
+   .list-group {
+    list-style-type: none;
+   }
+
+   .checkbox-parent-container {
+    overflow: hidden;
+   }
+   .checkbox-container {
+     float: left;
+   }

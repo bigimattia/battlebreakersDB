@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SaveStateService } from '../savestate.service';
@@ -13,6 +13,7 @@ import { filter } from 'minimatch';
 import { Color } from '../Color';
 import { AbilitySys } from '../AbilitySys';
 import { AbilitySysService } from '../abilitysys.service';
+import { Constants } from '../Constants';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class ListAllCharactersComponent implements OnInit {
 
   charactersList: Character[] = [];
   filteredCharacters: Character[] = [];
+  paged_filteredCharacters: Character[] = [];
   local_activeFilters: boolean[] = [];
   local_filterASC: boolean[] = [];
   selected_filter: number;
@@ -37,11 +39,17 @@ export class ListAllCharactersComponent implements OnInit {
   colorList: Color[] = [];
 
   abilityList: AbilitySys[]=[];
+
   /*
   commanderAbilityList: AbilitySys[] = [];
   passsiveAbilityList: AbilitySys[] = [];
   specialAbilityList: AbilitySys[] = [];
   */
+
+
+  MAX_PAGES: number;
+  char_per_page: number = 10;
+
   checklist:any;
   checkedList:any;
   local_isClassSelected: boolean[] = [];
@@ -88,6 +96,9 @@ export class ListAllCharactersComponent implements OnInit {
   get savestateservice_isSpecialAbilitySelected(): boolean [] {
     return Object.assign([], this.savestateservice.isSpecialAbilitySelected);
   }
+  get savestateservice_currentPage(): number  {
+    return this.savestateservice.current_page;
+  }
   set savestateservice_searchText (value: string) { 
     this.savestateservice.searchText = value; 
   } 
@@ -130,6 +141,9 @@ export class ListAllCharactersComponent implements OnInit {
   set savestateservice_isSpecialAbilitySelected(value: boolean[]){
     this.savestateservice.isSpecialAbilitySelected = Object.assign([], value);
   }
+  set savestateservice_currentPage(value: number) {
+    this.savestateservice.current_page = value;
+  }
 
 
   setClasses(){
@@ -163,10 +177,10 @@ export class ListAllCharactersComponent implements OnInit {
 
 
 
-  constructor(private characterService: CharacterService, private classesService: ClassesService, private colorService: ColorsService, private abilitySysService: AbilitySysService, public savestateservice: SaveStateService) { 
-      this.setClasses();
-      this.setColors();
-      this.setAbilities();
+  constructor(private characterService: CharacterService, private classesService: ClassesService, private colorService: ColorsService, private abilitySysService: AbilitySysService, public savestateservice: SaveStateService) {     
+    this.setClasses();
+    this.setColors();
+    this.setAbilities();
   }
 
   ngOnInit() {    
@@ -568,6 +582,13 @@ export class ListAllCharactersComponent implements OnInit {
 
   updateFilteredCharacters(list: Character[]){
     this.filteredCharacters = Object.assign([], list);
+    //PAGINATE
+    this.MAX_PAGES = this.filteredCharacters.length/this.char_per_page;
+    this.pager();
+    if(this.paged_filteredCharacters.length == 0){
+      this.savestateservice_currentPage = Math.round(this.MAX_PAGES);
+      this.pager();
+    }
   }
 
 
@@ -963,7 +984,30 @@ export class ListAllCharactersComponent implements OnInit {
       //handle filteringByColor
     this.specialAbilityHandler(false);
   }
-  
 
 
+  //TO-DO
+  //LOAD MORE
+  prevPage(){
+    if(this.savestateservice_currentPage > 0) {
+      this.savestateservice_currentPage = this.savestateservice_currentPage -1;
+      this.savestateservice_filter_init = true;
+      this.pager();
+    } 
+  }
+  nextPage(){
+    if(this.savestateservice_currentPage <= this.MAX_PAGES-1){
+      this.savestateservice_currentPage = this.savestateservice_currentPage +1;
+      this.savestateservice_filter_init = true;
+      this.pager();
+    }
+  }
+
+  pager(){
+    if(this.filteredCharacters.length>(this.savestateservice_currentPage*this.char_per_page+this.char_per_page))
+      this.paged_filteredCharacters = Object.assign([], this.filteredCharacters.slice(this.savestateservice_currentPage*this.char_per_page, this.savestateservice_currentPage*this.char_per_page+this.char_per_page));
+    else 
+      this.paged_filteredCharacters = Object.assign([], this.filteredCharacters.slice(this.savestateservice_currentPage*this.char_per_page, this.filteredCharacters.length));
+    console.log(this.paged_filteredCharacters);
+  }
 }

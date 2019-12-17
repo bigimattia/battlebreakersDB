@@ -14,6 +14,7 @@ import { ClassesService } from './characterclasses.service';
 import { ColorsService } from './color.service';
 import { AbilitySysService } from './abilitysys.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { DamageCalculatorComponent } from './damage-calculator/damage-calculator.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     AppComponent,
     HomeComponent,
     CharacterDetailComponent,
-    ListAllCharactersComponent
+    ListAllCharactersComponent,
+    DamageCalculatorComponent
   ],
   imports: [
     BrowserModule,

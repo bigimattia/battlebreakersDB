@@ -7,14 +7,14 @@
   <br>
   <div id="collapsingFilter" style="display: none;">
     <div class="filter-container">
-      <button class="filterByID-button" (click) = "filterByID_button_clickEvent()">Filter by ID</button>
-      <button class="filterByRarity-button" (click) = "filterByRARITY_button_clickEvent()">Filter by rarity</button>
-      <button class="filterByColor-button" (click) = "filterByColor_button_clickEvent()">Filter by color</button>
-      <button class="filterByClass-button" (click) = "filterByClass_button_clickEvent()">Filter by class</button>
-      <button class="filterByFaction-button" (click) = "filterByFaction_button_clickEvent()">Filter by faction</button>
-      <button class="filterByATK-button" (click) = "filterByATK_button_clickEvent()">Filter by ATK</button>
-      <button class="filterByDEF-button" (click) = "filterByDEF_button_clickEvent()">Filter by DEF</button>
-      <button class="filterByHP-button" (click) = "filterByHP_button_clickEvent()">Filter by HP</button>
+      <button class="filterByID-button" (click) = "filterByID_button_clickEvent()">Order by ID</button>
+      <button class="filterByRarity-button" (click) = "filterByRARITY_button_clickEvent()">Order by rarity</button>
+      <button class="filterByColor-button" (click) = "filterByColor_button_clickEvent()">Order by color</button>
+      <button class="filterByClass-button" (click) = "filterByClass_button_clickEvent()">Order by class</button>
+      <button class="filterByFaction-button" (click) = "filterByFaction_button_clickEvent()">Order by faction</button>
+      <button class="filterByATK-button" (click) = "filterByATK_button_clickEvent()">Order by ATK</button>
+      <button class="filterByDEF-button" (click) = "filterByDEF_button_clickEvent()">Order by DEF</button>
+      <button class="filterByHP-button" (click) = "filterByHP_button_clickEvent()">Order by HP</button>
     </div>
     <br>
     <div class="checkbox-parent-container">
@@ -137,14 +137,16 @@
      -Sorted: {{selected_filter}} - ASC? {{local_filterASC[selected_filter]}}<br>
      -Filtered some colors: {{!savestateservice_masterSelected_color}}<br>
      -Filtered some classes: {{!savestateservice_masterSelected}} </p>
-  
+
 <div class="container">
-      <div class="group">
-          <a *ngFor="let character of filteredCharacters" class="character-unit" routerLink="/detail/{{character.ID_CHARACTER}}">
-              <div class="character-block">
-                <h4>{{character.name}}</h4>
-                <p>Character ID: {{character.ID_CHARACTER}}</p>
-              </div>
-            </a>
-      </div>
+  <div class="group">
+      <a *ngFor="let character of paged_filteredCharacters" class="character-unit" routerLink="/detail/{{character.ID_CHARACTER}}">
+        <div class="character-block">
+          <h4>{{character.name}}</h4>
+          <p>Character ID: {{character.ID_CHARACTER}}</p>
+        </div>
+      </a>
   </div>
+</div>
+
+<button calss="prev-button" (click)="prevPage()">< PREV</button> <p> CURRENT PAGE: {{savestateservice_currentPage}}</p><button class="next-button" (click)="nextPage()" >NEXT ></button>
