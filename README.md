@@ -21,4 +21,6 @@ Add/edit abilities -> "src/app/abilitysys-data.ts" (You'll have to update "src/a
 ## Test it out!
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Test it out using electron by running "npm run electron".
+
 I've also included a "Dockerfile" and a "docker-compose.yml" for you to test things out.
