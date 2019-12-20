@@ -1,4 +1,6 @@
 export class Constants {
+    public static get INCREMENTAL_VAR(): number { return 5; }; //How many characters are displayed at once.
+
     /*
     ///// RARITY
     0 - Common
@@ -30,7 +32,7 @@ export class Constants {
     2 - 
     3 - 
     */
-   public static get NONE_FACTION(): number { return 0; };
+    public static get NONE_FACTION(): number { return 0; };
     public static get ASSAULT_ROBOT_FACTION(): number { return 1; };
 
     /*

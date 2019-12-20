@@ -6,9 +6,9 @@ export class Character {
     faction: number;
     color: number;
     rarity: number;
-    commander_ability_type: number;
-    passive_ability_type: number;
-    special_ability_type: number;
+    commander_ability_type: number[];
+    passive_ability_type: number[];
+    special_ability_type: number[];
     commander_ability_desc: string;
     passive_ability_desc: string;
     special_ability_desc: string;

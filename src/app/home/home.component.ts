@@ -49,6 +49,9 @@ export class HomeComponent implements OnInit {
   set savestateservice_isSpecialAbilitySelected(value: boolean[]){
     this.savestateservice.isSpecialAbilitySelected = Object.assign([], value);
   }
+  set savestateservice_currentPage(value: number){
+    this.savestateservice.current_page = value;
+  }
   ngOnInit() {
     //reset values for savestate.service
     this.savestateservice_searchText = "";
@@ -65,5 +68,6 @@ export class HomeComponent implements OnInit {
     this.savestateservice_isPassiveAbilitySelected = [true, true];
     this.savestateservice_masterSelected_specialAbility = true;
     this.savestateservice_isSpecialAbilitySelected = [true, true];
+    this.savestateservice_currentPage = 0;
   }
 }

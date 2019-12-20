@@ -79,4 +79,5 @@ export class SaveStateService {
     true
   ];
 
+  current_page: number = 0;
 }
