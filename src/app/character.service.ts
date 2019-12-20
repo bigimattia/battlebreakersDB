@@ -131,14 +131,81 @@ export class CharacterService {
   }
 
   filterCommander_MULTI(commanderMulti: number[], list: Character[]): Character[] {
-    return list.filter (character => commanderMulti.includes(character.commander_ability_type));
+    //DEPRECATED
+    //return list.filter (character => commanderMulti.includes(character.commander_ability_type));
+
+    var filteredList: Character[] = []; //list of filtered characters
+    var tmp: Boolean; //checks if ability type is selected
+
+    for(var i=0; i<list.length; i++ ) {
+      tmp=false;
+      for(var j = 0; j<list[i].commander_ability_type.length; j++){
+        for(var z=0; z<commanderMulti.length; z++){
+          if(list[i].commander_ability_type[j] === commanderMulti[z]){
+            tmp = true;
+            break;
+          }
+        }; // commanderMulti
+        if(tmp == true)
+          break;
+      }; // commander_ability_type
+      if(tmp == true)
+        filteredList.push(list[i]);
+    }; //characters
+
+    return filteredList; 
+
   }
 
   filterPassive_MULTI(passiveMulti: number[], list: Character[]): Character[] {
-    return list.filter (character => passiveMulti.includes(character.passive_ability_type));
+    //DEPRECATED
+    //return list.filter (character => passiveMulti.includes(character.passive_ability_type));
+
+    var filteredList: Character[] = []; //list of filtered characters
+    var tmp: Boolean; //checks if ability type is selected
+
+    for(var i=0; i<list.length; i++ ) {
+      tmp=false;
+      for(var j = 0; j<list[i].passive_ability_type.length; j++){
+        for(var z=0; z<passiveMulti.length; z++){
+          if(list[i].passive_ability_type[j] === passiveMulti[z]){
+            tmp = true;
+            break;
+          }
+        }; // commanderMulti
+        if(tmp == true)
+          break;
+      }; // commander_ability_type
+      if(tmp == true)
+        filteredList.push(list[i]);
+    }; //characters
+
+    return filteredList;
   }
 
   filterSpecial_MULTI(specialMulti: number[], list: Character[]): Character[] {
-    return list.filter (character => specialMulti.includes(character.special_ability_type));
+    //DEPRECATED
+    //return list.filter (character => specialMulti.includes(character.special_ability_type));
+
+    var filteredList: Character[] = []; //list of filtered characters
+    var tmp: Boolean; //checks if ability type is selected
+
+    for(var i=0; i<list.length; i++ ) {
+      tmp=false;
+      for(var j = 0; j<list[i].special_ability_type.length; j++){
+        for(var z=0; z<specialMulti.length; z++){
+          if(list[i].commander_ability_type[j] === specialMulti[z]){
+            tmp = true;
+            break;
+          }
+        }; // commanderMulti
+        if(tmp == true)
+          break;
+      }; // commander_ability_type
+      if(tmp == true)
+        filteredList.push(list[i]);
+    }; //characters
+
+    return filteredList;
   }
 }
