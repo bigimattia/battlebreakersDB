@@ -10,9 +10,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.BLUE_CHARACTER_COLOR,
         rarity: Constants.COMMON_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -47,9 +53,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -84,9 +96,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -121,9 +139,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -158,9 +182,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -195,9 +225,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -232,9 +268,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -269,9 +311,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -306,9 +354,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -343,9 +397,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -380,9 +440,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -417,9 +483,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -454,9 +526,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -491,9 +569,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -528,9 +612,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -565,9 +655,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
@@ -602,9 +698,15 @@ export const CHARACTERS: Character[] = [
         faction: Constants.ASSAULT_ROBOT_FACTION,
         color: Constants.GREEN_CHARACTER_COLOR,
         rarity: Constants.SUPER_RARE_RARITY,
-        commander_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        passive_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
-        special_ability_type: Constants.SELF_BOOSTING__ABILITY_TYPE,
+        commander_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        passive_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
+        special_ability_type: [
+            Constants.SELF_BOOSTING__ABILITY_TYPE
+        ],
         commander_ability_desc: 'forte',
         passive_ability_desc: 'ok',
         special_ability_desc: 'meh',
