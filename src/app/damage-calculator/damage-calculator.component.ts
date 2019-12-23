@@ -10,36 +10,43 @@ import { Character } from '../Character';
 export class DamageCalculatorComponent implements OnInit {
 
   filteredCharacters: Character[] = [];
-  selectedList: Character[] =[];
+  selectedList: any[];
   searchText: string;
   currentIndex: number = 0;
   amIOccupiedList: boolean[] = [false, false, false, false, false, false]
 
   constructor(private characterService: CharacterService) { 
     //TO-DO init selectedList in order to be NOT empty when calling addToSelectedPlace!!
-    var charList = characterService.getCharacters().slice(0,5);
-    this.selectedList = Object.assign([], charList);
+   
   }
 
   ngOnInit() {
+    this.selectedList = [0, 0, 0, 0, 0, 0]
   }
 
+  updateAmIOccupiedList(index:number, value: boolean) {
+    this.amIOccupiedList[index] = value;
+  }
 
   updateCurrentIndex(){ //changes current selected space to the next free space avaiable. If all spaces are already selected, does nothing
-    if(!(this.amIOccupiedList.indexOf(false) == -1)){
-      this.amIOccupiedList[this.currentIndex] = true;
-      this.currentIndex = this.amIOccupiedList.indexOf(false);
-    }
+      if(!(this.amIOccupiedList.indexOf(false) === -1)){
+        this.currentIndex = this.amIOccupiedList.indexOf(false);
+      }
   }
 
   addToSelectedPlace(character_id: string){
     this.selectedList[this.currentIndex] = this.characterService.getCharacter(character_id); 
+    this.updateAmIOccupiedList(this.currentIndex, true);
     this.updateCurrentIndex();
   }
 
-  removeFromSelectedPlace(character_id: string){
+  removeFromSelectedPlace(selected_character_index: number){
     //TO-DO
     //remove selected character from the selectedList without altering other characters position!
+
+    this.selectedList[selected_character_index] = 0;
+    this.updateAmIOccupiedList(selected_character_index, false);
+    this.updateCurrentIndex();
   }
   
   filterItem(value){

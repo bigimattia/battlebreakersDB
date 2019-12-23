@@ -1,15 +1,13 @@
 <nav><a routerLink="/home">Go Back to Homepage</a></nav>
   <br>
-
-  <p style="text-align: center;">damage-calculator will be implemented soon!</p>
-<!-- 
+  
 <div class="input-container">
     <input #searchText.value="ngModel" placeholder="Search character..."  [(ngModel)]="searchText" (input)="filterItem(searchText)">
 </div>
 
 <div class="container">
     <div class="group">
-        <a *ngFor="let character of filteredCharacters | slice:0:5" class="character-unit" (onclick)="addToSelectedPlace(character.ID_CHARACTER)">
+        <a *ngFor="let character of filteredCharacters | slice:0:5" class="character-unit" (click)="addToSelectedPlace(character.ID_CHARACTER)">
           <div class="character-block">
             <h4>{{character.name}}</h4>
             <p>Character ID: {{character.ID_CHARACTER}}</p>
@@ -23,11 +21,14 @@
 
 <div class="container">
     <div class="group">
-        <a *ngFor="let character of selectedList" class="character-unit" (onclick)="removeFromSelectedPlace(character.ID_CHARACTER)">
-          <div class="character-block">
-            <h4>{{character.name}}</h4>
-            <p>Character ID: {{character.ID_CHARACTER}}</p>
+        <a *ngFor="let selected_character of selectedList; let selected_character_index = index" class="character-unit" (click)="removeFromSelectedPlace(selected_character_index)">
+          <div *ngIf="selected_character" class="character-block">
+            <h4>{{selected_character.name}}</h4>
+            <p>Character ID: {{selected_character.ID_CHARACTER}}</p>
+          </div>
+          <div *ngIf="!selected_character" class="character-block">
+            <h4>Empty</h4>
           </div>
         </a>
     </div>
-  </div> -->
+  </div>
